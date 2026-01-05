@@ -1,0 +1,115 @@
+							JSP Elements
+							     |
+							     |
+---------------|----------------------------------------------|------------------------------------------------|
+	JSP Directives                                Scripting  elements                                 JSP actions
+	       |                                             |                                                 |
+page        Include    Taglib                                |                                                 |
+directive    directive   directive                           |	                              standard actions     custom actions
+					declarations    scriplets     expressions
+
+JSP Scripting elements
+----------------------
+
+the main purpose of scripting elements is to provide java code inside the jsp pages 
+there are 3 types of scripting elements 
+1. Declarations
+===============
+it is able to allow all java declarations like
+a) variable declarations.
+b) methods declarations.
+c) class, abstract classes, interface declarations.
+
+syntax
+-------
+<%
+---------java declarations-----------
+%>
+
+2. Scriptlets
+=============
+it is able to provide a block of java code.
+
+syntax
+------
+<%
+---------java code-----------
+%>
+
+3. expressions
+==============
+it is able to take a single java expression, evaluate it and display the result of the expression.
+
+syntax
+------
+<%= javaExpression%>
+
+JSP implicit Objects
+====================
+in general in web applications we will use some objects like, Request, response, session, exception..... frequently as per their application requirements, here to get these we have to use some java code explicitly here to reduce java code we have to use jsp implicit objects.
+
+JSP technology has provided the following implicit Objects
+
+1. out
+-------
+represent JSPWriter object, used to send some output to the client
+
+<%
+int num1=10;
+int num2=20;
+int sum=num1+num2;
+out.println("num1 is: "+num1+"<br>");
+out.println("num2 is: "+num2+"<br>");
+out.println("The addition of num1 and num2 is: "+sum+"<br>");
+%>
+
+2. request
+----------
+the request Object is an instance of java.servlet.http.HttpServletRequest and it is one of the argument of service method.
+it will be created by container for every request.
+it will be used to request the information like parameter, head information, server name, etc...
+it uses getParameter() to access the request parameter.
+
+	example
+	-------
+	String userName=request.getParameter("username");
+	out.println("Welcome :"+userName);
+
+3. response
+4. config
+---------
+// config
+String servletName=config.getServletName();
+out.println("Servlet Name is : "+servletName);
+
+// context
+String applicationName=application.getContextPath();
+out.println("Name: "+applicationName);
+
+5. application
+6. session
+----------
+<%
+session.setAttribute("user", "codegnan");
+%>
+<a href="action.jsp">Click here to get User name</a>
+
+out.println(session.getAttribute("user"));
+
+7. exception
+-------------
+Exception is the implicit object of the throwable class.
+it is used for exception handling in jsp.
+the exception Object can be only used in error pages.
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"                   isErrorPage="true"%>
+<%
+int[] numbers={1,2,3,4};
+out.println(numbers[5]);
+%>
+<%= exception %>
+
+the last 2 are not is use
+8. page
+9. pageContext
