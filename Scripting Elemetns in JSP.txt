@@ -3,10 +3,10 @@
 							     |
 ---------------|----------------------------------------------|------------------------------------------------|
 	JSP Directives                                Scripting  elements                                 JSP actions
-	       |                                             |                                                 |
+	       |                                                 |                                                 |
 page        Include    Taglib                                |                                                 |
 directive    directive   directive                           |	                              standard actions     custom actions
-					declarations    scriplets     expressions
+				                       	declarations    scriplets     expressions
 
 JSP Scripting elements
 ----------------------
@@ -113,3 +113,4 @@ out.println(numbers[5]);
 the last 2 are not is use
 8. page
 9. pageContext
+
